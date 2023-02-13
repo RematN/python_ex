@@ -22,8 +22,6 @@ class Book(object):
     def __str__(self):
         return '\nbook id:' + str(self.get_id()) + '\nbook name =' + str(self.get_name()) + '\nbook price =' + str(self.get_price())
         
-  
-  
     
 books = []
 while True:
