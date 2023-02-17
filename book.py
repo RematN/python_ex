@@ -56,9 +56,9 @@ while True:
                 x = input('do you want to add another book record? (y/n) :')
         
         case 'u':
-                bid =input('Enter Book Id of the record you want to Update:')
                 i='i'
                 while i =='i':
+                    bid =input('Enter Book Id of the record you want to Update:')
                     try:
                         int_test=int(bid)
                         i='p'
