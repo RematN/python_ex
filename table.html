@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table,tr,td {
+        border: 1px solid black;
+       }
+       /* td{
+        height: 50%;
+        width: 20%;
+       } */
+    </style>
+</head>
+<body>
+    <script>  
+        function getdata(){
+            var col=document.myform.col.value; 
+            var row=document.myform.row.value; 
+            var main = document.getElementById("main");
+            for(let i=1; i<=row; i++)
+            {  
+            // document.write(col)
+                for(let j=1; j<=col; j++)
+                {
+                    var para = document.createElement("g"); // creates paragraph
+                    para.setAttribute("id", "h" + (i+j)); //set atribute
+                    main.appendChild(para);
+                    // var data="data:<input type='text' name='name'>";  
+                    document.getElementById("h" + (i+j)).innerText = "enter data (" + (i+j) + ") : "; // texts in para
+                    var x = document.createElement("INPUT"); // criate inpute 
+                    x.setAttribute("id", "g" + j); //set id to elements
+                    x.setAttribute("type", "text"); //set atributes to each eliment
+                    // x.setAttribute("maxlength", "10"); //set max length
+                    var b = document.getElementById("h" + j); //select para id to appand x
+                    b.appendChild(x); // appand eliment x
+                 
+            
+                     
+                }
+            }
+                // var sub = document.createElement("INPUT"); //make button
+                // sub.setAttribute("type", "button");
+                // sub.setAttribute("id", "b1" + i);
+                // sub.setAttribute("onclick", "getdata()"); //create submit bottone make calculationsbuttone
+                // sub.setAttribute("value", "add");
+                // main.appendChild(sub); //appand button 
+
+            
+            var sub = document.createElement("INPUT"); //make button
+            sub.setAttribute("type", "button");
+            sub.setAttribute("id", "b2");
+            sub.setAttribute("onclick", "printTable()"); //create submit bottone make calculationsbuttone
+            sub.setAttribute("value", "Print Table");
+            main.appendChild(sub); //appand button  
+                // document.getElementById('d').innerHTML=data;                 
+        }
+        
+        function printTable(){  
+        var row=document.myform.row.value;  
+        var col=document.myform.col.value;  
+        for(let i=1; i<=row; i++)
+        {   
+            document.getElementById("tbl").innerHTML += "<tr id="+ i+">"+ "" +"  </tr>"
+            for(let j=1; j<=col; j++)
+            {
+                // "Enter data: <input type='text' name='data'><br/>  "
+                console.log(document.getElementById("g" + j));
+                document.getElementById(i).innerHTML += "<td id='d'>"+ document.getElementById("g" +(i+j)).value +"  </td>"
+            }
+        }
+        
+        }  
+    </script>    
+    <form name="myform" >  
+    No of Rows: <input type="number" name="row"><br/>  
+    No of Cols: <input type="number" name="col"><br/> 
+    <div id="main"></div>
+    <p id="g"></p>
+    <p id="b1"></p>
+    <p id="b2"></p>
+    <button type="button"  onclick=" getdata()">Get Data</button>     
+    <!-- <button type="button"  onclick=" printTable()">Print Table</button>  -->
+    <table id="tbl"> 
+        
+    </table>
+    </form>  
+    </body>
+    </html>
+    
